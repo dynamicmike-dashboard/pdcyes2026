@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllEvents } from "@/lib/content";
 
 export async function generateStaticParams() {

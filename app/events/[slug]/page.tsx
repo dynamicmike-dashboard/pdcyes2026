@@ -2,7 +2,7 @@ import { getEventBySlug } from "@/lib/content";
 import { notFound } from "next/navigation";
 import { SEOHead } from "@/components/SEOHead";
 import { formatDate } from "@/lib/utils";
-import { MarkdownBody } from "@/components/MarkdownBody";
+import MarkdownBody from "@/components/MarkdownBody";
 import { SpeakerCard } from "@/components/SpeakerCard";
 
 export const revalidate = 60;

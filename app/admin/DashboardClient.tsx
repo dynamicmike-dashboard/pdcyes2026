@@ -18,8 +18,11 @@ export default function DashboardClient({ events: initial }: { events: any[] }) 
 
   useEffect(() => {
     if (initial && initial.length) return;
-    import("@/lib/content")
-      .then((m) => m.getAllEvents() as Promise<any[]>)
+    fetch("/api/github")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch");
+        return res.json();
+      })
       .then((d) => setEvents(d as Event[]))
       .catch(() => setEvents([]));
   }, [initial]);

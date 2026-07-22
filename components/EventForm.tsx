@@ -54,7 +54,8 @@ export function EventForm({
   const [aiDraft, setAiDraft] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
+    const target = e.target as HTMLInputElement;
+    const { name, value, type, checked } = target;
     setValues((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
@@ -99,22 +100,25 @@ export function EventForm({
   // Handle accepting AI-generated content
   const handleAiAccept = (value: string) => {
     const upd: Partial<FormValues> = {};
-    switch (aiOpen?.type) {
-      case "event-page":
-        upd.description = value;
-        break;
-      case "whatsapp":
-        upd.whatsapp_copy = value;
-        break;
-      case "facebook":
-        upd.facebook_copy = value;
-        break;
-      case "linkedin":
-        upd.linkedin_copy = value;
-        break;
-      case "email":
-        upd.email_copy = value;
-        break;
+    const ai = aiOpen as { type: string } | false;
+    if (ai) {
+      switch (ai.type) {
+        case "event-page":
+          upd.description = value;
+          break;
+        case "whatsapp":
+          upd.whatsapp_copy = value;
+          break;
+        case "facebook":
+          upd.facebook_copy = value;
+          break;
+        case "linkedin":
+          upd.linkedin_copy = value;
+          break;
+        case "email":
+          upd.email_copy = value;
+          break;
+      }
     }
     setValues((prev) => ({ ...prev, ...upd }));
     setAiOpen(false);

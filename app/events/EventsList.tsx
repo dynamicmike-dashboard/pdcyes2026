@@ -3,18 +3,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { EventCard } from "@/components/EventCard";
 import { SEOHead } from "@/components/SEOHead";
+import { EventData } from "@/lib/types";
 
-type Event = {
-  slug: string;
-  title: string;
-  date: string;
-  venue?: string;
-  image?: string;
-  category?: string;
-  body?: string;
-};
-
-export default function EventsList({ events }: { events: Event[] }) {
+export default function EventsList({ events }: { events: EventData[] }) {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
 

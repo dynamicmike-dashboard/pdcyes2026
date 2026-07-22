@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { EventRow } from "@/components/EventRow";
 import { Button } from "@/components/Button";
-import { getAllEvents } from "@/lib/content";
 
 export default function EventsList() {
   const [events, setEvents] = useState<Array<any>>([]);
@@ -11,7 +10,13 @@ export default function EventsList() {
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
-    getAllEvents().then(setEvents).catch(() => setEvents([]));
+    fetch("/api/github")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch");
+        return res.json();
+      })
+      .then(setEvents)
+      .catch(() => setEvents([]));
   }, []);
 
   const filtered = (events ?? [])

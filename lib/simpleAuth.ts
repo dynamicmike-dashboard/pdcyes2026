@@ -29,5 +29,5 @@ export function setManageCookie(hash: string) {
 
 export function removeManageCookie() {
   const cookieStore = cookies();
-  cookieStore.delete(COOKIE_NAME, { path: "/" });
+  cookieStore.set(COOKIE_NAME, "", { path: "/", maxAge: 0 });
 }

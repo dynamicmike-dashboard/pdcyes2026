@@ -1,10 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getAllEvents } from "@/lib/content";
 import { EventCard } from "@/components/EventCard";
 import { SEOHead } from "@/components/SEOHead";
 import { formatDate } from "@/lib/utils";
-
-export const revalidate = 60; // ISR
 
 export default async function Home() {
   const events = await getAllEvents();

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { SEOHead } from "@/components/SEOHead";
 
 export default function JoinUs() {

@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOctokit } from "@/lib/github";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 
 async function getAuthToken(req: NextRequest) {
-  const session = await getServerSession(authOptions);
+  const session = (await auth()) as any;
   return session?.accessToken ?? null;
 }
 
@@ -82,7 +81,13 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug");
   if (!slug) {
-    return NextResponse.json({ error: "Missing slug" }, { status: 400 });
+    try {
+      const { getAllEvents } = await import("@/lib/content");
+      const events = await getAllEvents();
+      return NextResponse.json(events);
+    } catch (err: any) {
+      return NextResponse.json({ error: err.message }, { status: 500 });
+    }
   }
 
   const octokit = await getOctokit(token);

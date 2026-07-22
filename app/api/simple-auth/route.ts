@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
   if (searchParams.get("action") === "logout") {
     const cookieName = process.env.MANAGE_COOKIE_NAME ?? "manage_session";
     const res = NextResponse.json({ success: true });
-    cookies().delete(cookieName, { path: "/" });
+    res.cookies.set(cookieName, "", { path: "/", maxAge: 0 });
     return res;
   }
   return NextResponse.json({ error: "Method not allowed" }, { status: 405 });

@@ -5,7 +5,7 @@ import OpenAI from "openai";
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 async function getSession(req: NextRequest) {
-  return await auth();
+  return (await auth()) as any;
 }
 
 export async function POST(req: NextRequest) {
