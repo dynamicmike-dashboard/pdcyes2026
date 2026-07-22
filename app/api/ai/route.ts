@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 async function getSession(req: NextRequest) {
   return await getServerSession(authOptions);
@@ -18,16 +15,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  if (!process.env.OPENAI_API_KEY) {
+    return NextResponse.json(
+      { error: "OPENAI_API_KEY not configured" },
+      { status: 500 }
+    );
+  }
+
   const { type, context } = await req.json();
 
-  // Build prompt based on type
   let systemPrompt = "You are an expert copywriter for the PDCYES community.";
   let userPrompt = "";
 
   switch (type) {
     case "event-page":
       userPrompt = `
-        Write an engaging event‑page description (markdown‑friendly) for the following event:
+        Write an engaging event-page description (markdown-friendly) for the following event:
         Title: ${context.title}
         Date: ${context.date}
         Time: ${context.time}
@@ -38,12 +41,12 @@ export async function POST(req: NextRequest) {
         Existing description (if any): ${context.description ?? ""}
         Registration link: ${context.registration_link ?? ""}
         ${context.extraPrompt ?? ""}
-        Keep the tone warm, inspirational and community‑focused. End with a clear call‑to‑action to register.
+        Keep the tone warm, inspirational and community-focused. End with a clear call-to-action to register.
       `;
       break;
     case "whatsapp":
       userPrompt = `
-        Create a WhatsApp‑style message (max ~400 characters) promoting the event:
+        Create a WhatsApp-style message (max ~400 characters) promoting the event:
         Title: ${context.title}
         Date: ${context.date}
         Time: ${context.time}
@@ -67,7 +70,7 @@ export async function POST(req: NextRequest) {
       break;
     case "linkedin":
       userPrompt = `
-        Write a LinkedIn update (150‑300 words) announcing the event:
+        Write a LinkedIn update (150-300 words) announcing the event:
         Title: ${context.title}
         Date: ${context.date}
         Time: ${context.time}
@@ -100,7 +103,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: systemPrompt },
@@ -110,12 +113,12 @@ export async function POST(req: NextRequest) {
       max_tokens: 500,
     });
 
-    const generated = completion.data.choices[0]?.message?.content?.trim() ?? "";
+    const generated = completion.choices[0]?.message?.content?.trim() ?? "";
 
     return NextResponse.json({ generated });
   } catch (err: any) {
     return NextResponse.json(
-      { error: "AI generation failed", details: err.message },
+      { error: "AI generation failed", details: err?.message ?? String(err) },
       { status: 500 }
     );
   }
