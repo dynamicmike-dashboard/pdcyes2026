@@ -1,3 +1,4 @@
+"use client";
 export function Button({
   children,
   variant = "primary",
