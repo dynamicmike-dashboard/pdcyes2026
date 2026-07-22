@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Button } from "@/components/Button";
 import { AIAssistantToolbar } from "@/components/ai/AIAssistantToolbar";
@@ -47,7 +48,7 @@ export function EventForm({
   });
 
   const [aiOpen, setAiOpen] = useState<false | {
-    type: FormValues["whatsapp"] extends string ? "whatsapp" : never; // placeholder
+    type: "event-page" | "whatsapp" | "facebook" | "linkedin" | "email";
     initial: string;
   }>(false);
   const [aiDraft, setAiDraft] = useState("");
@@ -204,7 +205,7 @@ export function EventForm({
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Registration Link"label>
+          <label className="block text-sm font-medium mb-1">Registration Link (optional)</label>
         <input
           name="registration_link"
           value={values.registration_link}

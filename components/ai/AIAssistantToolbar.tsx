@@ -1,13 +1,19 @@
+"use client";
 import { Button } from "@/components/Button";
 
 export function AIAssistantToolbar({
   onGenerate,
 }: {
-  onGenerate: (type: "event-page" | "whatsapp" | "facebook" | "linkedin" | "email") => Promise<void> | void;
+  onGenerate: (
+    type: "event-page" | "whatsapp" | "facebook" | "linkedin" | "email"
+  ) => Promise<void> | void;
 }) {
   return (
- 
-  onCaret>;onClick={() => onGenerate("event-page")}
+    <div className="flex flex-wrap gap-2 my-4 p-3 bg-gray-50 rounded border">
+      <Button
+        variant="primary"
+        size="sm"
+        onClick={() => onGenerate("event-page")}
       >
         Generate Event Page
       </Button>
