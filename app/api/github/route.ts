@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getOctokit } from "@/lib/github";
 import { auth } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 async function getAuthToken(req: NextRequest) {
   const session = (await auth()) as any;
   return session?.accessToken ?? null;

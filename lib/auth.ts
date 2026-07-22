@@ -4,8 +4,8 @@ import GitHubProvider from "next-auth/providers/github";
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!,
+      clientId: process.env.GITHUB_ID || "dummy_id",
+      clientSecret: process.env.GITHUB_SECRET || "dummy_secret",
     }),
   ],
   callbacks: {
@@ -21,8 +21,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
   pages: {
-    signIn: "/admin/login", // we rely on NextAuth's default sign‑in page
+    signIn: "/admin/login",
   },
+  secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET || "dummy_secret",
 });
 
 export default { handlers, auth, signIn, signOut };

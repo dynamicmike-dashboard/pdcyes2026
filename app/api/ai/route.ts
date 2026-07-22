@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import OpenAI from "openai";
 
+export const dynamic = "force-dynamic";
+
 async function getSession(req: NextRequest) {
   return (await auth()) as any;
 }
