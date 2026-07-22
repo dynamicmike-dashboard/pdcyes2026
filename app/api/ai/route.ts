@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import OpenAI from "openai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 async function getSession(req: NextRequest) {
   return (await auth()) as any;
 }
@@ -20,6 +18,8 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
+
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   const { type, context } = await req.json();
 
