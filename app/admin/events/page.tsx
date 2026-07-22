@@ -1,25 +1,25 @@
-import { getAllEvents } from "@/lib/content";
+"use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { EventRow } from "@/components/EventRow";
 import { Button } from "@/components/Button";
+import { getAllEvents } from "@/lib/content";
 
-export default async function EventsList() {
+export default function EventsList() {
   const [events, setEvents] = useState<Array<any>>([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
-    getAllEvents().then(setEvents);
+    getAllEvents().then(setEvents).catch(() => setEvents([]));
   }, []);
 
-  const filtered = events
-    .filter((e) => {
-      if (search && !e.title.toLowerCase().includes(search.toLowerCase())) return false;
-      // filter logic can be extended
+  const filtered = (events ?? [])
+    .filter((e: any) => {
+      if (search && !e?.title?.toLowerCase().includes(search.toLowerCase())) return false;
       return true;
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a: any, b: any) => new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime());
 
   return (
     <>
@@ -65,7 +65,7 @@ export default async function EventsList() {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((ev) => (
+            {filtered.map((ev: any) => (
               <EventRow key={ev.slug} event={ev} />
             ))}
           </tbody>
