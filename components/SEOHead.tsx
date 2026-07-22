@@ -1,32 +1,31 @@
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  pathname?: string;
+};
 
 export default function SEOHead({
   title,
   description,
   image,
-}: { title?: string; description?: string; image?: string }) {
-  const pathname = usePathname();
+  pathname = "",
+}: Props) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pdcye.com";
-
-  const defaults = useMemo(() => {
-    return {
-      title: title ?? "PDCYES",
-      description:
-        description ?? "Personal Development Community in Playa del Carmen",
-      image: image ?? `${baseUrl}/images/logo.png`,
-    };
-  }, [title, description, image, baseUrl]);
-
+  const finalTitle = title ?? "PDCYES";
+  const finalDescription =
+    description ?? "Personal Development Community in Playa del Carmen";
+  const finalImage = image ?? `${baseUrl}/images/logo.png`;
+  const url = `${baseUrl}${pathname}`;
   return (
     <>
-      <title>{`${defaults.title} | PDCYES`}</title>
-      <meta name="description" content={defaults.description} />
-      <link rel="canonical" href={`${baseUrl}${pathname}`} />
-      <meta property="og:title" content={defaults.title} />
-      <meta property="og:description" content={defaults.description} />
-      <meta property="og:image" content={defaults.image} />
-      <meta property="og:url" content={`${baseUrl}${pathname}`} />
+      <title>{`${finalTitle} | PDCYES`}</title>
+      <meta name="description" content={finalDescription} />
+      <link rel="canonical" href={url} />
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={finalDescription} />
+      <meta property="og:image" content={finalImage} />
+      <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
     </>
