@@ -5,8 +5,8 @@ import { cookies } from "next/headers";
 export async function middleware(req: Request) {
   const { pathname } = new URL(req.url);
 
-  // Only protect the /manage namespace
-  if (!pathname.startsWith("/manage")) {
+  // Allow access to the login page itself
+  if (!pathname.startsWith("/manage") || pathname === "/manage") {
     return NextResponse.next();
   }
 
