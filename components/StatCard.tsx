@@ -1,3 +1,5 @@
+type IconLike = string | React.ComponentType<any> | JSX.Element;
+
 export function StatCard({
   label,
   value,
@@ -5,8 +7,20 @@ export function StatCard({
 }: {
   label: string;
   value: number | string;
-  icon: React.ComponentType<any> | JSX.Element;
+  icon?: IconLike;
 }) {
+  const renderIcon = () => {
+    if (!icon) return null;
+    if (typeof icon === "string") {
+      return <span className="text-2xl" aria-hidden>{icon}</span>;
+    }
+    if (typeof icon === "function") {
+      const C = icon as React.ComponentType<any>;
+      return <C />;
+    }
+    return icon;
+  };
+
   return (
     <div className="bg-white p-4 rounded shadow border">
       <div className="flex items-center justify-between">
@@ -15,7 +29,7 @@ export function StatCard({
           <p className="text-2xl font-bold">{value}</p>
         </div>
         <div className="p-2 rounded bg-primary/10 text-primary">
-          <span className="text-2xl">📅</span>
+          {renderIcon()}
         </div>
       </div>
     </div>
