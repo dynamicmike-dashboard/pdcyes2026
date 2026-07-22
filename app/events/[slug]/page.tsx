@@ -1,12 +1,3 @@
-import { getEventBySlug: "lib/content",
- notFound: "next/navigation",
- SEOHead: not sure about imports.
-I'll write a simple version with placeholders.
-
-
-<tool_call>
-<function=write>
-<parameter=content>
 import { getEventBySlug } from "@/lib/content";
 import { notFound } from "next/navigation";
 import { SEOHead } from "@/components/SEOHead";
