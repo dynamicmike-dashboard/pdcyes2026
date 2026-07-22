@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -7,7 +8,6 @@ export default function NewEventPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app you would call /api/github with action:"create"
     setSubmitMessage("Event created! Redirecting…");
     await new Promise((r) => setTimeout(r, 1500));
     router.push("/admin/events");
@@ -19,74 +19,45 @@ export default function NewEventPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-sm font-medium mb-1">Title*</label>
-          <input
-            type="text"
-            required
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" required className="w-full p-2 border rounded" />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className="block text-sm font-medium mb-1">Date*</label>
-            <input
-              type="date"
-              required
-              className="w-full p-2 border rounded"
-            />
+            <input type="date" required className="w-full p-2 border rounded" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Time (e.g., 10:00-12:00)</label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded"
-            />
+            <input type="text" className="w-full p-2 border rounded" />
           </div>
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">Venue</label>
-          <input
-            type="text"
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" className="w-full p-2 border rounded" />
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">Image URL (relative to /public)</label>
-          <input
-            type="text"
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" className="w-full p-2 border rounded" />
         </div>
 
         <div className="space-y-2">
           <label className="block text-sm font-medium mb-1">Speaker 1 (Name – Title)</label>
-          <input
-            type="text"
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" className="w-full p-2 border rounded" />
           <label className="block text-sm font-medium mb-1">Speaker 2 (Name – Title)</label>
-          <input
-            type="text"
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" className="w-full p-2 border rounded" />
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">Description (Markdown)</label>
-          <textarea
-            rows={6}
-            className="w-full p-2 border rounded"
-          />
+          <textarea rows={6} className="w-full p-2 border rounded" />
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">Registration Link (optional)</label>
-          <input
-            type="text"
-            className="w-full p-2 border rounded"
-          />
+          <input type="text" className="w-full p-2 border rounded" />
         </div>
 
         <div className="flex items-center space-x-3">
