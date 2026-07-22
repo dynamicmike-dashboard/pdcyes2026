@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+
+export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { EventRow } from "@/components/EventRow";
 

@@ -1,8 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ManageLoginPage() {
+export const dynamic = "force-dynamic";
+
+function ManageLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [password, setPassword] = useState("");
@@ -90,5 +92,17 @@ export default function ManageLoginPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function ManageLoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center text-gray-400">
+        Loading admin portal…
+      </div>
+    }>
+      <ManageLoginForm />
+    </Suspense>
   );
 }
