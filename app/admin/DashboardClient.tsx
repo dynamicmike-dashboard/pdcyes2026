@@ -4,19 +4,29 @@ import { StatCard } from "@/components/StatCard";
 import { RecentActivity } from "@/components/RecentActivity";
 import { QuickActions } from "@/components/QuickActions";
 
-type Event = { slug: string; title: string; date: string };
+type Event = {
+  slug: string;
+  title?: string;
+  date?: string;
+  body?: string;
+  venue?: string;
+  image?: string;
+};
 
-export default function DashboardClient({ events: initial }: { events: Event[] }) {
-  const [events, setEvents] = useState<Event[]>(initial ?? []);
+export default function DashboardClient({ events: initial }: { events: any[] }) {
+  const [events, setEvents] = useState<Event[]>(Array.isArray(initial) ? (initial as Event[]) : []);
 
   useEffect(() => {
     if (initial && initial.length) return;
-    import("@/lib/content").then((m) => m.getAllEvents()).then(setEvents).catch(() => setEvents([]));
+    import("@/lib/content")
+      .then((m) => m.getAllEvents() as Promise<any[]>)
+      .then((d) => setEvents(d as Event[]))
+      .catch(() => setEvents([]));
   }, [initial]);
 
   const { upcoming, past } = useMemo(() => {
     const today = new Date().setHours(0, 0, 0, 0);
-    const up = events.filter((e) => new Date(e.date).getTime() >= today).length;
+    const up = events.filter((e) => e?.date && new Date(e.date).getTime() >= today).length;
     return { upcoming: up, past: events.length - up };
   }, [events]);
 
