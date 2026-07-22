@@ -5,7 +5,7 @@ type Props = {
   pathname?: string;
 };
 
-export default function SEOHead({
+export function SEOHead({
   title,
   description,
   image,
@@ -31,3 +31,5 @@ export default function SEOHead({
     </>
   );
 }
+
+export default SEOHead;
