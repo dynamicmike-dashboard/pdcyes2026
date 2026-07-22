@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 export function AdminSidebar() {
-  const { data: session } = useSession();
+  const sessionRes = useSession();
+  const session = sessionRes?.data;
   return (
     <aside className="w-64 bg-white border-r">
       <nav className="pt-6 space-y-4">

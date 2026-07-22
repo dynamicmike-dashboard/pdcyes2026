@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SEOHead } from "@/components/SEOHead";
+import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "PDCYES – Personal Development Community in Playa del Carmen",
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SEOHead />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <SEOHead />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

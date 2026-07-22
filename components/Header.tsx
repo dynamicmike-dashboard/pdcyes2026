@@ -4,7 +4,8 @@ import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
 export function Header() {
-  const { data: session } = useSession();
+  const sessionRes = useSession();
+  const session = sessionRes?.data;
 
   return (
     <header className="bg-white shadow-sm flex items-center justify-between px-4 py-6">
