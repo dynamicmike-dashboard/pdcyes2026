@@ -1,10 +1,11 @@
 "use client";
 import { useMemo } from "react";
 
-export default function MarkdownBody({ content }: { content: string }) {
-  // Very simple markdown‑to‑html conversion – for production use a library like `remark` or `marked`.
+export default function MarkdownBody({ content }: { content?: string }) {
   const html = useMemo(() => {
-    return content
+    const text = typeof content === "string" ? content : String(content ?? "");
+    if (!text.trim()) return "";
+    return text
       .split("\n\n")
       .map((para) => `<p>${para.replace(/\n/g, "<br/>")}</p>`)
       .join("");

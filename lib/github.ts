@@ -59,12 +59,39 @@ export async function getOctokit(accessToken?: string) {
 }
 
 /**
- * Parses markdown front-matter using gray-matter.
+ * Parses markdown front-matter using gray-matter with safe fallback parser.
  */
 export function parseEventMarkdown(raw: string) {
-  const { data, content } = matter(raw);
-  return {
-    frontmatter: data as Record<string, any>,
-    body: content,
-  };
+  if (!raw) return { frontmatter: {}, body: "" };
+  try {
+    const { data, content } = matter(raw);
+    return {
+      frontmatter: (data || {}) as Record<string, any>,
+      body: content || "",
+    };
+  } catch (err) {
+    // Fallback manual parser if YAML parsing fails due to unescaped characters
+    try {
+      const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+      if (match) {
+        const frontmatterStr = match[1];
+        const body = match[2];
+        const data: Record<string, any> = {};
+        frontmatterStr.split("\n").forEach((line) => {
+          const colonIdx = line.indexOf(":");
+          if (colonIdx > 0) {
+            const key = line.slice(0, colonIdx).trim();
+            let val = line.slice(colonIdx + 1).trim();
+            if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+            if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
+            data[key] = val;
+          }
+        });
+        return { frontmatter: data, body: body || "" };
+      }
+    } catch (e) {
+      // ignore fallback error
+    }
+    return { frontmatter: {}, body: raw };
+  }
 }
