@@ -40,23 +40,65 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ success: true });
       }
       case "update": {
-        const { slug, content, message, sha } = data;
+        let { slug, content, message, sha } = data;
+        if (!sha) {
+          try {
+            const existingFile = await octokit.request(
+              `GET /repos/{owner}/{repo}/contents/content/events/{filename}`,
+              {
+                owner,
+                repo,
+                filename: `${slug}.md`,
+                headers: { authorization: `token ${token}` },
+              }
+            );
+            sha = (existingFile.data as any).sha;
+          } catch (e: any) {
+            // ignore if file doesn't exist
+          }
+        }
+
+        const payload: Record<string, any> = {
+          owner,
+          repo,
+          filename: `${slug}.md`,
+          message,
+          content: Buffer.from(content).toString("base64"),
+          headers: { authorization: `token ${token}` },
+        };
+        if (sha) {
+          payload.sha = sha;
+        }
+
         await octokit.request(
           `PUT /repos/{owner}/{repo}/contents/content/events/{filename}`,
-          {
-            owner,
-            repo,
-            filename: `${slug}.md`,
-            message,
-            content: Buffer.from(content).toString("base64"),
-            sha,
-            headers: { authorization: `token ${token}` },
-          }
+          payload as any
         );
         return NextResponse.json({ success: true });
       }
       case "delete": {
-        const { slug, sha, message } = data;
+        let { slug, sha, message } = data;
+        if (!sha) {
+          try {
+            const existingFile = await octokit.request(
+              `GET /repos/{owner}/{repo}/contents/content/events/{filename}`,
+              {
+                owner,
+                repo,
+                filename: `${slug}.md`,
+                headers: { authorization: `token ${token}` },
+              }
+            );
+            sha = (existingFile.data as any).sha;
+          } catch (e: any) {
+            // ignore
+          }
+        }
+
+        if (!sha) {
+          return NextResponse.json({ error: "File not found or sha unavailable" }, { status: 404 });
+        }
+
         await octokit.request(
           `DELETE /repos/{owner}/{repo}/contents/content/events/{filename}`,
           {

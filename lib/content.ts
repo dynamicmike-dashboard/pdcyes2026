@@ -22,6 +22,7 @@ export async function getAllEvents() {
         const { frontmatter, body } = parseEventMarkdown(raw);
         return {
           slug: f.name.replace(/\.md$/, ""),
+          sha: f.sha,
           ...frontmatter,
           body,
         } as EventData;
@@ -50,6 +51,7 @@ export async function getEventBySlug(slug: string): Promise<EventData | null> {
     const { frontmatter, body } = parseEventMarkdown(raw);
     return {
       slug,
+      sha: data.sha,
       ...frontmatter,
       body,
     } as EventData;

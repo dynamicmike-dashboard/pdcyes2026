@@ -41,6 +41,7 @@ ${values.description}
         body: JSON.stringify({
           action: "update",
           slug,
+          sha: initialValues?.sha,
           content: markdownContent,
           message: `Update event: ${values.title}`,
         }),
