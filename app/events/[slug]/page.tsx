@@ -50,13 +50,13 @@ export default async function EventDetail({ params }: { params: { slug: string }
             {/* Speakers */}
             {event.speaker1 || event.speaker2 ? (
               <section className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Speakers</h2>
+                <h2 className="text-xl font-bold mb-4 text-gray-900">Featured Speakers</h2>
                 <div className="flex flex-wrap gap-4">
                   {event.speaker1 && (
-                    <SpeakerCard name={event.speaker1} />
+                    <SpeakerCard name={event.speaker1} image={event.speaker1_image} />
                   )}
                   {event.speaker2 && (
-                    <SpeakerCard name={event.speaker2} />
+                    <SpeakerCard name={event.speaker2} image={event.speaker2_image} />
                   )}
                 </div>
               </section>

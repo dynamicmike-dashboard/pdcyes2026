@@ -6,7 +6,9 @@ export type EventData = {
   venue?: string;
   image?: string;
   speaker1?: string;
+  speaker1_image?: string;
   speaker2?: string;
+  speaker2_image?: string;
   registration_link?: string;
   body?: string;
   category?: string;

@@ -11,7 +11,9 @@ type FormValues = {
   venue: string;
   image: string;
   speaker1: string;
+  speaker1_image?: string;
   speaker2: string;
+  speaker2_image?: string;
   description: string;
   registration_link: string;
   featured: boolean;
@@ -39,7 +41,9 @@ export function EventForm({
     venue: "",
     image: "",
     speaker1: "",
+    speaker1_image: "",
     speaker2: "",
+    speaker2_image: "",
     description: "",
     registration_link: "",
     featured: false,
@@ -182,21 +186,53 @@ export function EventForm({
         />
       </div>
 
-      <div className="space-y-2">
-        <label className="block text-sm font-medium mb-1">Speaker 1 (Name – Title)</label>
-        <input
-          name="speaker1"
-          value={values.speaker1}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <label className="block text-sm font-medium mb-1">Speaker 2 (Name – Title)</label>
-        <input
-          name="speaker2"
-          value={values.speaker2}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+      <div className="p-4 bg-gray-50 border border-gray-200 rounded-xl space-y-4">
+        <h3 className="text-sm font-bold text-gray-900">Speakers Information</h3>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Speaker 1 Name & Title</label>
+            <input
+              name="speaker1"
+              value={values.speaker1}
+              onChange={handleChange}
+              placeholder="e.g. John Doe – Leadership Coach"
+              className="w-full p-2 border border-gray-300 rounded-lg text-sm bg-white"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Speaker 1 Profile Image URL / Path</label>
+            <input
+              name="speaker1_image"
+              value={values.speaker1_image || ""}
+              onChange={handleChange}
+              placeholder="https://... or images/speaker1.jpg"
+              className="w-full p-2 border border-gray-300 rounded-lg text-sm bg-white"
+            />
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 pt-2 border-t border-gray-200">
+          <div>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Speaker 2 Name & Title</label>
+            <input
+              name="speaker2"
+              value={values.speaker2}
+              onChange={handleChange}
+              placeholder="e.g. Jane Smith – Keynote Speaker"
+              className="w-full p-2 border border-gray-300 rounded-lg text-sm bg-white"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1 text-gray-700">Speaker 2 Profile Image URL / Path</label>
+            <input
+              name="speaker2_image"
+              value={values.speaker2_image || ""}
+              onChange={handleChange}
+              placeholder="https://... or images/speaker2.jpg"
+              className="w-full p-2 border border-gray-300 rounded-lg text-sm bg-white"
+            />
+          </div>
+        </div>
       </div>
 
       <div>

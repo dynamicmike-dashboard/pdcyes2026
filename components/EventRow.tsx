@@ -47,7 +47,9 @@ time: "${event.time || ""}"
 venue: "${event.venue || ""}"
 image: "${event.image || ""}"
 speaker1: "${event.speaker1 || ""}"
+speaker1_image: "${event.speaker1_image || ""}"
 speaker2: "${event.speaker2 || ""}"
+speaker2_image: "${event.speaker2_image || ""}"
 registration_link: "${event.registration_link || ""}"
 featured: true
 publish: true

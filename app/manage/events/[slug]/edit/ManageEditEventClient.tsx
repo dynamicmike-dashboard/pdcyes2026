@@ -23,7 +23,9 @@ time: "${values.time}"
 venue: "${values.venue}"
 image: "${values.image}"
 speaker1: "${values.speaker1}"
+speaker1_image: "${values.speaker1_image || ""}"
 speaker2: "${values.speaker2}"
+speaker2_image: "${values.speaker2_image || ""}"
 registration_link: "${values.registration_link}"
 featured: ${values.featured}
 publish: ${values.publish}
