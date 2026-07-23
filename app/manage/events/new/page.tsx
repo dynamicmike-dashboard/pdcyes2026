@@ -8,9 +8,12 @@ import { EventForm } from "@/components/EventForm";
 export default function NewEventManagePage() {
   const router = useRouter();
   const [submitMessage, setSubmitMessage] = useState("");
+  const [createdSlug, setCreatedSlug] = useState<string | null>(null);
 
   const handleSubmit = async (values: any) => {
     setSubmitMessage("Creating event and committing to GitHub…");
+    setCreatedSlug(null);
+
     const slug = values.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
@@ -49,8 +52,8 @@ ${values.description}
         throw new Error(errData.error || "GitHub commit failed");
       }
 
-      setSubmitMessage("Event published successfully! Redirecting…");
-      setTimeout(() => router.push("/manage/events"), 1200);
+      setSubmitMessage("🎉 Event published & committed to GitHub!");
+      setCreatedSlug(slug);
     } catch (err: any) {
       setSubmitMessage(`Error: ${err.message}`);
     }
@@ -68,6 +71,43 @@ ${values.description}
             ← Back to Events
           </button>
         </div>
+
+        {createdSlug && (
+          <div className="mb-6 p-5 bg-green-50 border border-green-200 rounded-xl">
+            <h3 className="text-lg font-bold text-green-900 flex items-center gap-2 mb-2">
+              ✅ Event Published Successfully!
+            </h3>
+            <p className="text-sm text-green-800 mb-4">
+              Your event is now live in the repository and accessible on the site.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={`/events/${createdSlug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm shadow-sm flex items-center gap-1.5"
+              >
+                👁 View Live Event Page ↗
+              </a>
+              <button
+                onClick={() => {
+                  const url = `${window.location.origin}/events/${createdSlug}`;
+                  navigator.clipboard.writeText(url);
+                  alert(`Link copied to clipboard!\n${url}`);
+                }}
+                className="px-4 py-2 bg-white text-green-800 border border-green-300 font-semibold rounded-lg hover:bg-green-100 transition-colors text-sm shadow-sm"
+              >
+                📋 Copy Shareable Link
+              </button>
+              <button
+                onClick={() => router.push("/manage/events")}
+                className="px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors text-sm"
+              >
+                Go to Events Dashboard
+              </button>
+            </div>
+          </div>
+        )}
 
         <EventForm
           initialValues={{ featured: true, publish: true }}

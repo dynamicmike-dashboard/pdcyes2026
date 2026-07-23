@@ -108,6 +108,26 @@ ${event.body || event.description || ""}
         </td>
         <td className="p-4 text-right">
           <div className="flex items-center justify-end space-x-2">
+            <a
+              href={`/events/${event.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-lg hover:bg-blue-100 transition-colors flex items-center gap-1 border border-blue-200"
+              title="View public live page"
+            >
+              👁 View Live
+            </a>
+            <button
+              onClick={() => {
+                const url = `${window.location.origin}/events/${event.slug}`;
+                navigator.clipboard.writeText(url);
+                alert(`Link copied to clipboard!\n${url}`);
+              }}
+              className="px-2.5 py-1.5 bg-gray-100 text-gray-700 text-xs font-medium rounded-lg hover:bg-gray-200 transition-colors border border-gray-200"
+              title="Copy shareable URL"
+            >
+              📋 Link
+            </button>
             <Link
               href={`/manage/events/${event.slug}/edit`}
               className="px-3 py-1.5 bg-primary/10 text-primary text-xs font-medium rounded-lg hover:bg-primary/20 transition-colors"
