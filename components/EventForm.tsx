@@ -88,8 +88,10 @@ export function EventForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type, context: ctx }),
       });
-      if (!res.ok) throw new Error("Failed to generate");
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || data.details || "Failed to generate");
+      }
       setAiDraft(data.generated ?? "");
       setAiOpen({ type: type as any, initial: data.generated ?? "" } as any);
     } catch (err: any) {

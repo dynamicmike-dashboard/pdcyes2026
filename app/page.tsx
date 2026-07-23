@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { getAllEvents } from "@/lib/content";
+import { getImageUrl } from "@/lib/github";
 import { SEOHead } from "@/components/SEOHead";
 import { formatDate } from "@/lib/utils";
 import MarkdownBody from "@/components/MarkdownBody";
@@ -32,7 +33,7 @@ export default async function Home() {
               {featured.image && (
                 <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-gray-100">
                   <img
-                    src={featured.image.startsWith("http") ? featured.image : `https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${featured.image}`}
+                    src={getImageUrl(featured.image)}
                     alt={featured.title}
                     className="w-full h-full object-cover"
                   />

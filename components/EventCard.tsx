@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
+import { getImageUrl } from "@/lib/github";
 
 export function EventCard({ event }: { event: any }) {
   return (
@@ -8,9 +9,7 @@ export function EventCard({ event }: { event: any }) {
       className="group block overflow-hidden rounded border shadow hover:shadow-lg transition-shadow"
     >
       <img
-        src={event.image
-          ? `https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${event.image}`
-          : "/images/placeholder.jpg"}
+        src={getImageUrl(event.image)}
         alt={event.title}
         className="w-full h-48 object-cover"
       />

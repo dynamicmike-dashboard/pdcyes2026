@@ -1,22 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { isUserAuthenticated } from "@/lib/simpleAuth";
 import OpenAI from "openai";
 
 export const dynamic = "force-dynamic";
 
-async function getSession(req: NextRequest) {
-  return (await auth()) as any;
-}
-
 export async function POST(req: NextRequest) {
-  const session = await getSession(req);
-  if (!session?.accessToken) {
+  const authenticated = await isUserAuthenticated();
+  if (!authenticated) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   if (!process.env.OPENAI_API_KEY) {
     return NextResponse.json(
-      { error: "OPENAI_API_KEY not configured" },
+      { error: "OPENAI_API_KEY is not configured in environment variables." },
       { status: 500 }
     );
   }

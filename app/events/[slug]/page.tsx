@@ -1,4 +1,5 @@
 import { getEventBySlug } from "@/lib/content";
+import { getImageUrl } from "@/lib/github";
 import { notFound } from "next/navigation";
 import { SEOHead } from "@/components/SEOHead";
 import { formatDate } from "@/lib/utils";
@@ -16,16 +17,14 @@ export default async function EventDetail({ params }: { params: { slug: string }
       <SEOHead
         title={event.title}
         description={event.body.slice(0, 150)}
-        image={event.image
-          ? `https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${event.image}`
-          : undefined}
+        image={event.image ? getImageUrl(event.image) : undefined}
       />
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Hero Image */}
           {event.image && (
             <img
-              src={`https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${event.image}`}
+              src={getImageUrl(event.image)}
               alt={event.title}
               className="w-full h-64 object-cover rounded-xl mb-6"
             />
@@ -108,9 +107,7 @@ export default async function EventDetail({ params }: { params: { slug: string }
               name: event.venue ?? "",
             },
             description: event.body,
-            image: event.image
-              ? `https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${event.image}`
-              : undefined,
+            image: event.image ? getImageUrl(event.image) : undefined,
             offers: {
               "@type": "Offer",
               url: event.registration_link ?? "",

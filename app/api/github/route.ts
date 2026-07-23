@@ -1,22 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getOctokit } from "@/lib/github";
-import { auth } from "@/lib/auth";
+import { getOctokit, getRepoDetails } from "@/lib/github";
+import { isUserAuthenticated, getGitHubToken } from "@/lib/simpleAuth";
 
 export const dynamic = "force-dynamic";
 
-async function getAuthToken(req: NextRequest) {
-  const session = (await auth()) as any;
-  return session?.accessToken ?? null;
-}
-
 export async function POST(req: NextRequest) {
-  const token = await getAuthToken(req);
-  if (!token) {
+  const authenticated = await isUserAuthenticated();
+  if (!authenticated) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const token = await getGitHubToken();
+  if (!token) {
+    return NextResponse.json(
+      { error: "GitHub PAT (GITHUB_PAT) is not configured in environment variables." },
+      { status: 500 }
+    );
   }
 
   const { action, ...data } = await req.json();
   const octokit = await getOctokit(token);
+  const { owner, repo } = getRepoDetails();
 
   try {
     switch (action) {
@@ -25,8 +29,8 @@ export async function POST(req: NextRequest) {
         await octokit.request(
           `PUT /repos/{owner}/{repo}/contents/content/events/{filename}`,
           {
-            owner: process.env.GITHUB_OWNER!,
-            repo: process.env.GITHUB_REPO!,
+            owner,
+            repo,
             filename: `${slug}.md`,
             message,
             content: Buffer.from(content).toString("base64"),
@@ -40,8 +44,8 @@ export async function POST(req: NextRequest) {
         await octokit.request(
           `PUT /repos/{owner}/{repo}/contents/content/events/{filename}`,
           {
-            owner: process.env.GITHUB_OWNER!,
-            repo: process.env.GITHUB_REPO!,
+            owner,
+            repo,
             filename: `${slug}.md`,
             message,
             content: Buffer.from(content).toString("base64"),
@@ -56,8 +60,8 @@ export async function POST(req: NextRequest) {
         await octokit.request(
           `DELETE /repos/{owner}/{repo}/contents/content/events/{filename}`,
           {
-            owner: process.env.GITHUB_OWNER!,
-            repo: process.env.GITHUB_REPO!,
+            owner,
+            repo,
             filename: `${slug}.md`,
             sha,
             message,
@@ -75,13 +79,9 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
-  const token = await getAuthToken(req);
-  if (!token) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug");
+
   if (!slug) {
     try {
       const { getAllEvents } = await import("@/lib/content");
@@ -92,15 +92,18 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  const octokit = await getOctokit(token);
+  const token = await getGitHubToken();
+  const octokit = await getOctokit(token ?? undefined);
+  const { owner, repo } = getRepoDetails();
+
   try {
     const { data } = await octokit.request(
       `GET /repos/{owner}/{repo}/contents/content/events/{filename}`,
       {
-        owner: process.env.GITHUB_OWNER!,
-        repo: process.env.GITHUB_REPO!,
+        owner,
+        repo,
         filename: `${slug}.md`,
-        headers: { authorization: `token ${token}` },
+        headers: token ? { authorization: `token ${token}` } : undefined,
       }
     );
     const content = Buffer.from(data.content, "base64").toString("utf8");

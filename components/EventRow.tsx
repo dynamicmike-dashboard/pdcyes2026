@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/Button";
 import { Modal } from "@/components/Modal";
+import { getImageUrl } from "@/lib/github";
 
 export function EventRow({ event }: { event: any }) {
   const router = useRouter();
@@ -83,7 +84,7 @@ ${event.body || event.description || ""}
         <td className="p-4">
           {event.image ? (
             <img
-              src={event.image.startsWith("http") ? event.image : `https://raw.githubusercontent.com/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/main/${event.image}`}
+              src={getImageUrl(event.image)}
               alt={event.title}
               className="w-12 h-12 object-cover rounded-lg shadow-xs"
             />

@@ -1,17 +1,16 @@
-import { parseEventMarkdown } from "./github";
+import { parseEventMarkdown, getRepoDetails } from "./github";
 import { EventData } from "./types";
 
-const PUBLIC_REPO_OWNER = process.env.GITHUB_OWNER!;
-const PUBLIC_REPO_NAME = process.env.GITHUB_REPO!;
 const BRANCH = "main";
 
 /**
  * Fetch all events from the default branch (public raw URL works for public repo)
  */
 export async function getAllEvents() {
+  const { owner, repo } = getRepoDetails();
   try {
     const res = await fetch(
-      `https://api.github.com/repos/${PUBLIC_REPO_OWNER}/${PUBLIC_REPO_NAME}/contents/content/events?ref=${BRANCH}`
+      `https://api.github.com/repos/${owner}/${repo}/contents/content/events?ref=${BRANCH}`
     );
     if (!res.ok) return [];
     const files: Array<{ name: string; download_url: string; sha: string }> = await res.json();
@@ -40,9 +39,10 @@ export async function getAllEvents() {
  * Fetch a single event by its slug
  */
 export async function getEventBySlug(slug: string): Promise<EventData | null> {
+  const { owner, repo } = getRepoDetails();
   try {
     const res = await fetch(
-      `https://api.github.com/repos/${PUBLIC_REPO_OWNER}/${PUBLIC_REPO_NAME}/contents/content/events/${slug}.md?ref=${BRANCH}`
+      `https://api.github.com/repos/${owner}/${repo}/contents/content/events/${slug}.md?ref=${BRANCH}`
     );
     if (!res.ok) return null;
     const data = await res.json();
