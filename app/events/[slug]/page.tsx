@@ -12,11 +12,24 @@ export default async function EventDetail({ params }: { params: { slug: string }
   const event = await getEventBySlug(params.slug);
   if (!event) notFound();
 
+  const bodyText = event.body || "";
+  const titleText = event.title || "Event Detail";
+
+  const startTime = typeof event.time === "string" && event.time.includes("-")
+    ? event.time.split("-")[0].trim()
+    : typeof event.time === "string" && event.time
+    ? event.time.trim()
+    : "00:00";
+
+  const endTime = typeof event.time === "string" && event.time.includes("-")
+    ? event.time.split("-")[1].trim()
+    : "23:59";
+
   return (
     <>
       <SEOHead
-        title={event.title}
-        description={event.body.slice(0, 150)}
+        title={titleText}
+        description={bodyText.slice(0, 150)}
         image={event.image ? getImageUrl(event.image) : undefined}
       />
       <section className="py-12 px-4">
@@ -25,30 +38,30 @@ export default async function EventDetail({ params }: { params: { slug: string }
           {event.image && (
             <img
               src={getImageUrl(event.image)}
-              alt={event.title}
+              alt={titleText}
               className="w-full h-64 object-cover rounded-xl mb-6"
             />
           )}
 
           <article>
             <header className="mb-8">
-              <h1 className="text-4xl font-bold">{event.title}</h1>
+              <h1 className="text-4xl font-bold">{titleText}</h1>
               <div className="flex flex-wrap gap-4 text-sm text-gray-500 mt-2">
-                <span>{formatDate(event.date)}</span>
+                <span>{event.date ? formatDate(event.date) : "TBA"}</span>
                 <span>•</span>
-                <span>{event.time}</span>
+                <span>{event.time || "TBA"}</span>
                 <span>•</span>
-                <span>{event.venue}</span>
+                <span>{event.venue || "TBA"}</span>
               </div>
             </header>
 
             {/* Description */}
             <div className="mb-8 prose prose-lg max-w-none">
-              <MarkdownBody content={event.body} />
+              <MarkdownBody content={bodyText} />
             </div>
 
             {/* Speakers */}
-            {event.speaker1 || event.speaker2 ? (
+            {(event.speaker1 || event.speaker2) ? (
               <section className="mb-8">
                 <h2 className="text-xl font-bold mb-4 text-gray-900">Featured Speakers</h2>
                 <div className="flex flex-wrap gap-4">
@@ -75,38 +88,25 @@ export default async function EventDetail({ params }: { params: { slug: string }
                 </a>
               </div>
             )}
-
-            {/* Related Events (simple placeholder) */}
-            <section className="mt-12">
-              <h2 className="text-xl font-bold mb-4">You May Also Like</h2>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[1, 2].map((i) => (
-                  <div key={i} className="p-4 border rounded">
-                    <h3 className="font-semibold">Related Event {i}</h3>
-                    <p className="text-sm">Date • Venue</p>
-                  </div>
-                ))}
-              </div>
-            </section>
           </article>
         </div>
       </section>
 
-      {/* JSON‑LD script */}
+      {/* JSON-LD script */}
       <script
-        type="application/json"
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Event",
-            name: event.title,
-            startDate: `${event.date}T${event.time?.split("-")[0].trim() || "00:00"}:00`,
-            endDate: `${event.date}T${event.time?.split("-")[1].trim() || "23:59"}:00`,
+            name: titleText,
+            startDate: event.date ? `${event.date}T${startTime}:00` : undefined,
+            endDate: event.date ? `${event.date}T${endTime}:00` : undefined,
             location: {
               "@type": "Place",
               name: event.venue ?? "",
             },
-            description: event.body,
+            description: bodyText,
             image: event.image ? getImageUrl(event.image) : undefined,
             offers: {
               "@type": "Offer",
@@ -119,7 +119,7 @@ export default async function EventDetail({ params }: { params: { slug: string }
               { "@type": "Person", name: event.speaker1 ?? "" },
               { "@type": "Person", name: event.speaker2 ?? "" },
             ].filter((p) => p.name),
-          })
+          }),
         }}
       />
     </>
