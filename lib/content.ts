@@ -20,12 +20,12 @@ export async function getAllEvents() {
         const rawRes = await fetch(f.download_url);
         const raw = await rawRes.text();
         const { frontmatter, body } = parseEventMarkdown(raw);
-        return {
+        return ({
           slug: f.name.replace(/\.md$/, ""),
           sha: f.sha,
           ...frontmatter,
           body,
-        } as EventData;
+        } as unknown) as EventData;
       })
     );
 
@@ -49,12 +49,12 @@ export async function getEventBySlug(slug: string): Promise<EventData | null> {
     const data = await res.json();
     const raw = Buffer.from(data.content, "base64").toString("utf8");
     const { frontmatter, body } = parseEventMarkdown(raw);
-    return {
+    return ({
       slug,
       sha: data.sha,
       ...frontmatter,
       body,
-    } as EventData;
+    } as unknown) as EventData;
   } catch {
     return null;
   }
