@@ -1,5 +1,5 @@
 ---
-title: "Move, Laugh, Thrive."
+title: "Move, Laugh, Thrive"
 date: "2026-08-02"
 time: "1pm-3pm"
 venue: "Buzos Restaurant, c26, Av25y30, Playa Del Carmen"
