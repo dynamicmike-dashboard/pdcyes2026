@@ -18,8 +18,8 @@
 - [x] Added Direct Live Viewing & Shareable Link buttons (`/events/<slug>`) to create, edit, and event list screens.
 - [x] Hardened frontmatter parsing (`parseEventMarkdown` in `lib/github.ts`) with safe regex fallback parser.
 - [x] Added GitHub raw CDN fallback & token headers (`lib/content.ts`) for un-rate-limited event fetching.
-- [x] Added custom 404 page (`app/not-found.tsx`).
+- [x] Fixed Vercel Digest `2508316783` Server-Side Exception on `/events/[slug]`: Added `"use client"` to `SpeakerCard.tsx` (which contains `onError` image fallback handler) to prevent React Server Component SSR crash, and refactored SEO metadata to native Next.js `generateMetadata`.
 
 ## PENDING / NEXT SESSION
-- [ ] Investigate Vercel Runtime Logs for Digest `2508316783` on specific event page slug if error persists on Vercel preview.
-- [ ] Confirm published event rendering on live domain.
+- [ ] Confirm published event rendering on live domain (https://pdcyes2026.vercel.app/events/move-laugh-thrive after Vercel build completes).
+
