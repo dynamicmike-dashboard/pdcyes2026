@@ -1,25 +1,42 @@
 # PROJECT MANIFEST
 
 ## STATUS
-- Current Goal: Event Management & AI Assistant Fixes / Server Exception Debugging
-- Last Session Date: 2026-07-23
+- Current Goal: Stable, Production-Ready Event Management & Public Event Pages
+- Last Session Date: 2026-07-24
+- Last Session End Time: ~12:36 CST
 
 ## SYSTEM STATE
 - Project Root: F:\Mike d drive\Mike Webs\PDC YES\pdcyes-new-website 20jul26\pdcyes-github
 - Active Modules: Event Management (/manage), AI Copywriting (/api/ai), GitHub Sync (/api/github)
 - Repository: https://github.com/dynamicmike-dashboard/pdcyes2026
 - Branch: main
+- Live Site: https://pdcyes2026.vercel.app/
+- Manage URL: https://pdcyes2026.vercel.app/manage
+- Dev Port: 3001 (npm run dev -- -p 3001)
 
-## COMPLETED THIS SESSION
-- [x] Fixed AI generation 401 error: `/api/ai` now authorizes password-authenticated `/manage` users via `isUserAuthenticated()`.
-- [x] Fixed Event publish 401 error: `/api/github` authorizes `/manage` users and commits using `GITHUB_PAT`.
-- [x] Fixed GitHub API `sha` requirement for event edits: auto-fetches file SHA if omitted.
-- [x] Added Speaker Profile Image fields (`speaker1_image`, `speaker2_image`) to form & `SpeakerCard` component.
-- [x] Added Direct Live Viewing & Shareable Link buttons (`/events/<slug>`) to create, edit, and event list screens.
-- [x] Hardened frontmatter parsing (`parseEventMarkdown` in `lib/github.ts`) with safe regex fallback parser.
-- [x] Added GitHub raw CDN fallback & token headers (`lib/content.ts`) for un-rate-limited event fetching.
-- [x] Fixed Vercel Digest `2508316783` Server-Side Exception on `/events/[slug]`: Added `"use client"` to `SpeakerCard.tsx` (which contains `onError` image fallback handler) to prevent React Server Component SSR crash, and refactored SEO metadata to native Next.js `generateMetadata`.
+## COMPLETED THIS SESSION (2026-07-24)
+
+### Bug Fixes
+- [x] Fixed Vercel Digest `2508316783` server-side exception: Added `"use client"` to `SpeakerCard.tsx` (onError handler not valid in React Server Components)
+- [x] Fixed stale event page cache: Changed `revalidate = 60` → `force-dynamic` so image/content changes show immediately after every edit
+- [x] Fixed stale SHA bug: Edit form no longer passes cached SHA — API always auto-fetches current GitHub SHA before writing
+
+### Features & Improvements
+- [x] Refactored SEO metadata to native Next.js `generateMetadata()` — proper OG title, description, image per event
+- [x] Enhanced `MarkdownBody` — auto-hyperlinks raw URLs and `[text](url)` markdown links; added **bold** and *italic* rendering
+- [x] Improved Registration Link CTA on event detail page — prominent amber card with "Register Now →" button and raw URL as secondary hyperlink
+
+## DATA PERMANENCE CONFIRMED
+- All event edits are committed permanently to GitHub as `.md` files in `/content/events/`
+- Full git history retained — every version of every event recoverable at any time
+- Wiki summaries stored in `/wiki/summaries/` for session continuity
 
 ## PENDING / NEXT SESSION
-- [ ] Confirm published event rendering on live domain (https://pdcyes2026.vercel.app/events/move-laugh-thrive after Vercel build completes).
+- [ ] Add more events via /manage as needed
+- [ ] Consider adding event archiving/past events section
+- [ ] Consider image upload to GitHub repo instead of relying on external CDN URLs
 
+## RESTART PROTOCOL
+1. Local dev: `npm run dev` (port 3001 configured in package.json)
+2. Admin: http://localhost:3001/manage → password: dormobile1
+3. See SYSTEM_PROTOCOL.md for full startup instructions
