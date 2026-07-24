@@ -49,9 +49,7 @@ export default function EventsList({ events }: { events: EventData[] }) {
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((ev) => (
-                <Link key={ev.slug} href={`/events/${ev.slug}`} className="group">
-                  <EventCard event={ev} />
-                </Link>
+                <EventCard key={ev.slug} event={ev} />
               ))}
             </div>
           )}
