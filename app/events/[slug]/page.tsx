@@ -89,15 +89,28 @@ export default async function EventDetail({ params }: { params: { slug: string }
 
             {/* Registration CTA */}
             {event.registration_link && (
-              <div className="text-center mb-8">
+              <div className="mt-6 mb-8 p-6 bg-amber-50 border border-amber-200 rounded-2xl text-center">
+                <p className="text-sm font-semibold text-amber-800 uppercase tracking-wide mb-3">
+                  📝 Registration
+                </p>
                 <a
                   href={event.registration_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-accent text-white rounded hover:bg-opacity-90"
+                  className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-xl shadow-md shadow-primary/25 hover:bg-primary/90 transition-all text-base"
                 >
-                  Register Now
+                  Register Now →
                 </a>
+                <p className="mt-3 text-xs text-gray-500 break-all">
+                  <a
+                    href={event.registration_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-primary"
+                  >
+                    {event.registration_link}
+                  </a>
+                </p>
               </div>
             )}
           </article>
