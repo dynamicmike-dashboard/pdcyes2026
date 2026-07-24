@@ -42,6 +42,8 @@ https://www.instagram.com/djmeeshel?igsh=MTd2M3M0aGFobG93Ng%3D%3D&utm_source=qr
 https://www.facebook.com/share/14jXnhR1wNs/?mibextid=wwXIfr
 
 
+---
+
 
 🔹 **Big Sexy** will share his engaging journey of resilience post-stroke, highlighting the power of silliness, creativity, and love in overcoming challenges and embracing growth.
 https://facebook.com/BigSexyDigitalNomad/
@@ -66,3 +68,4 @@ https://www.patreon.com/bigsexydigitalnomad
 Don't miss out on this unique event that happens only once a month. **Register now** to secure your spot and be part of this uplifting experience!
 
 [**Join Us**](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)
+
