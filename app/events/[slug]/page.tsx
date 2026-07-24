@@ -1,12 +1,29 @@
 import { getEventBySlug } from "@/lib/content";
 import { getImageUrl } from "@/lib/github";
 import { notFound } from "next/navigation";
-import { SEOHead } from "@/components/SEOHead";
 import { formatDate } from "@/lib/utils";
 import MarkdownBody from "@/components/MarkdownBody";
 import { SpeakerCard } from "@/components/SpeakerCard";
+import type { Metadata } from "next";
 
 export const revalidate = 60;
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const event = await getEventBySlug(params.slug);
+  if (!event) return { title: "Event Not Found | PDCYES" };
+  const titleText = event.title || "Event Detail";
+  const bodyText = event.body || "";
+  const imageUrl = event.image ? getImageUrl(event.image) : undefined;
+  return {
+    title: `${titleText} | PDCYES`,
+    description: bodyText.slice(0, 150),
+    openGraph: {
+      title: titleText,
+      description: bodyText.slice(0, 150),
+      images: imageUrl ? [imageUrl] : [],
+    },
+  };
+}
 
 export default async function EventDetail({ params }: { params: { slug: string } }) {
   const event = await getEventBySlug(params.slug);
@@ -27,11 +44,6 @@ export default async function EventDetail({ params }: { params: { slug: string }
 
   return (
     <>
-      <SEOHead
-        title={titleText}
-        description={bodyText.slice(0, 150)}
-        image={event.image ? getImageUrl(event.image) : undefined}
-      />
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Hero Image */}

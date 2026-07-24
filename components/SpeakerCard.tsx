@@ -1,3 +1,4 @@
+"use client";
 import { getImageUrl } from "@/lib/github";
 
 export function SpeakerCard({ name, image }: { name: string; image?: string }) {
