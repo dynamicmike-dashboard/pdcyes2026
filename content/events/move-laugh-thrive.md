@@ -13,34 +13,56 @@ featured: true
 publish: true
 ---
 
-🌟 PDCYES – Sunday 2nd August 2026 🌟
+# Move, Laugh, Thrive Event
+
+🌟 **PDCYES – Sunday 2nd August 2026** 🌟
 
 **Move Better. Feel Better. Live Bigger.**
 
-Join us for another inspiring afternoon of personal growth, practical tools, and meaningful connections.
+Come and join us for an afternoon filled with inspiration, growth, and connections at the upcoming Move, Laugh, Thrive event!
 
-🎤 **Michelle LeMay**
-**Move Your Body, Elevate Your Vibration**
+---
 
-Movement coach and DJ Michelle LeMay will share simple, feel-good movement sequences designed to reduce stress, improve mobility, and help you feel more energized in everyday life. Whether you dance, exercise, or simply want to move with greater ease, you'll leave with practical techniques you can use immediately.
+🎤 **Speakers:**
+- **Big Sexy:** *The Power of Silliness, Creativity & Love*
+- **Michelle LeMay:** *Move Your Body, Elevate Your Vibration*
 
-🧘 *Please bring a yoga mat for this interactive mini-workshop.*
+---
 
-🎤 **Big Sexy**
-**The Power of Silliness, Creativity & Love**
+📅 **Date:** Sunday, 2nd August 2026  
+⏰ **Time:** 1pm – 3pm  
+📍 **Venue:** Buzos Restaurant, c26, Av25y30, Playa Del Carmen
 
-Actor, poet, podcaster, entertainer, and community builder, Big Sexy shares his remarkable journey of resilience following a life-changing stroke. Through humor, creativity, and human connection, he'll explore how unexpected challenges can become powerful opportunities for growth, healing, and transformation.
+---
 
-📅 Sunday 2nd August 2026
-⏰ 1pm – 3pm
-📍 Buzos Restaurant, Calle 26 between Ave 25 & 30, Playa del Carmen
+**What to Expect:**
 
-✅ No charge to attend
-👥 Bring friends
-😊 New faces always welcome
+🔹 **Michelle LeMay** will guide you through simple, feel-good movement sequences that reduce stress, improve mobility, and energize you for everyday life. Grab your yoga mat and get ready to unlock freedom in your body.
+https://www.instagram.com/djmeeshel?igsh=MTd2M3M0aGFobG93Ng%3D%3D&utm_source=qr
+https://www.facebook.com/share/14jXnhR1wNs/?mibextid=wwXIfr
 
-PDCYES happens only once per month—don't miss this one.
 
-💬 Join the community:
-https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g
 
+🔹 **Big Sexy** will share his engaging journey of resilience post-stroke, highlighting the power of silliness, creativity, and love in overcoming challenges and embracing growth.
+https://facebook.com/BigSexyDigitalNomad/
+https://instagram.com/Bigsexynomad
+https://youtube.com/@bigsexydigitalnomad
+https://www.patreon.com/bigsexydigitalnomad
+
+
+---
+
+✅ **No charge to attend**  
+👥 **Bring friends**  
+😊 **New faces always welcome**
+
+---
+
+💬 **Join the community:**  
+[WhatsApp Chat Group](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)
+
+---
+
+Don't miss out on this unique event that happens only once a month. **Register now** to secure your spot and be part of this uplifting experience!
+
+[**Join Us**](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)
