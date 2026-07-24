@@ -6,7 +6,7 @@ import MarkdownBody from "@/components/MarkdownBody";
 import { SpeakerCard } from "@/components/SpeakerCard";
 import type { Metadata } from "next";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const event = await getEventBySlug(params.slug);

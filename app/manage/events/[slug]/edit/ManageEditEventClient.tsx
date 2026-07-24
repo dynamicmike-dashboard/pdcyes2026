@@ -41,7 +41,8 @@ ${values.description}
         body: JSON.stringify({
           action: "update",
           slug,
-          sha: initialValues?.sha,
+          // Do NOT pass sha – the API will auto-fetch the current SHA from GitHub
+          // to avoid stale SHA mismatch errors when multiple edits happen
           content: markdownContent,
           message: `Update event: ${values.title}`,
         }),
