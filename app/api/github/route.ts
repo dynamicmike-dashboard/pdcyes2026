@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getOctokit, getRepoDetails } from "@/lib/github";
+import matter from "gray-matter";
+import { getOctokit, getRepoDetails, parseEventMarkdown } from "@/lib/github";
 import { isUserAuthenticated, getGitHubToken } from "@/lib/simpleAuth";
 
 export const dynamic = "force-dynamic";
@@ -38,6 +39,49 @@ export async function POST(req: NextRequest) {
           }
         );
         return NextResponse.json({ success: true });
+      }
+      case "clone": {
+        const { sourceSlug, newSlug, newDate, message } = data;
+
+        if (!sourceSlug || !newSlug) {
+          return NextResponse.json({ error: "sourceSlug and newSlug are required" }, { status: 400 });
+        }
+        if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(newSlug)) {
+          return NextResponse.json({ error: "Invalid new event slug" }, { status: 400 });
+        }
+
+        const sourceFile = await octokit.request(
+          `GET /repos/{owner}/{repo}/contents/content/events/{filename}`,
+          {
+            owner,
+            repo,
+            filename: `${sourceSlug}.md`,
+            headers: { authorization: `token ${token}` },
+          }
+        );
+        const sourceContent = Buffer.from((sourceFile.data as any).content, "base64").toString("utf8");
+        const { frontmatter, body } = parseEventMarkdown(sourceContent);
+        const clonedFrontmatter = {
+          ...frontmatter,
+          title: `${frontmatter.title || sourceSlug} (Copy)`,
+          ...(newDate ? { date: newDate } : {}),
+          publish: false,
+        };
+        const clonedContent = matter.stringify(body, clonedFrontmatter);
+
+        await octokit.request(
+          `PUT /repos/{owner}/{repo}/contents/content/events/{filename}`,
+          {
+            owner,
+            repo,
+            filename: `${newSlug}.md`,
+            message: message || `Clone event: ${frontmatter.title || sourceSlug}`,
+            content: Buffer.from(clonedContent).toString("base64"),
+            headers: { authorization: `token ${token}` },
+          }
+        );
+
+        return NextResponse.json({ success: true, slug: newSlug });
       }
       case "update": {
         let { slug, content, message, sha } = data;

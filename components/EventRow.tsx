@@ -40,39 +40,24 @@ export function EventRow({ event }: { event: any }) {
   const handleClone = async () => {
     setLoading(true);
     const newSlug = `${event.slug}-copy-${Date.now().toString().slice(-4)}`;
-    const clonedContent = `---
-title: "${event.title} (Copy)"
-date: "${newDate || event.date}"
-time: "${event.time || ""}"
-venue: "${event.venue || ""}"
-image: "${event.image || ""}"
-speaker1: "${event.speaker1 || ""}"
-speaker1_image: "${event.speaker1_image || ""}"
-speaker2: "${event.speaker2 || ""}"
-speaker2_image: "${event.speaker2_image || ""}"
-registration_link: "${event.registration_link || ""}"
-featured: true
-publish: true
----
-
-${event.body || event.description || ""}
-`;
 
     try {
       const res = await fetch("/api/github", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          action: "create",
-          slug: newSlug,
-          content: clonedContent,
+          action: "clone",
+          sourceSlug: event.slug,
+          newSlug,
+          newDate: newDate || event.date,
           message: `Clone event: ${event.title}`,
         }),
       });
 
-      if (!res.ok) throw new Error("Clone failed");
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Clone failed");
       setOpenClone(false);
-      window.location.reload();
+      router.push(`/manage/events/${data.slug || newSlug}/edit`);
     } catch (err: any) {
       alert(`Clone error: ${err.message}`);
     } finally {
@@ -137,7 +122,7 @@ ${event.body || event.description || ""}
               Edit
             </Link>
             <Button
-              variant="secondary"
+              variant="primary"
               size="sm"
               onClick={() => setOpenClone(true)}
             >
