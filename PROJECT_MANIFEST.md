@@ -1,9 +1,9 @@
 # PROJECT MANIFEST
 
 ## STATUS
-- Current Goal: Host events on events.pdcyes.com subdomain, linking cleanly to pdcyes.com main site.
-- Last Session Date: 2026-07-24
-- Last Session End Time: ~17:00 CST
+- Current Goal: Maintain the PDCYES events site and manage event content through GitHub.
+- Last Session Date: 2026-08-15
+- Last Session End Time: Shutdown after event clone workflow update.
 
 ## SYSTEM STATE
 - Project Root: F:\Mike d drive\Mike Webs\PDC YES\pdcyes-new-website 20jul26\pdcyes-github
@@ -31,6 +31,14 @@
 - Full git history retained — every version of every event recoverable at any time
 - Wiki summaries stored in `/wiki/summaries/` for session continuity
 
+## COMPLETED THIS SESSION (2026-08-15)
+- [x] Added an authenticated API clone action that preserves the source event's front matter and Markdown body.
+- [x] Clone creates a uniquely named draft, applies the selected date, and redirects to the new event editor.
+- [x] Fixed Clone button contrast by using the existing primary color style.
+- [x] Verified with `npm run build`.
+- [x] Committed and pushed as `06997dc Improve event cloning workflow`.
+
 ## PENDING / NEXT SESSION
 - [ ] Monitor Vercel build status and domain mapping.
 - [ ] Implement image uploads directly to the repo rather than referencing outside URL paths if requested.
+- [ ] Confirm the deployed `/manage/events` Clone flow after the Vercel deployment completes.

@@ -8,3 +8,6 @@
 
 # TASK: PR MANAGER
 "Initialize from SYSTEM_PROTOCOL.md. Read PROJECT_MANIFEST.md. Create 'Manage PRs' tab. Include Status toggle and Keyword Phrase dropdown selector. Update generation prompt to use keyword phrase as anchor."
+
+# TASK: EVENT CLONE
+"Initialize from SYSTEM_PROTOCOL.md. Read PROJECT_MANIFEST.md. Verify the authenticated event clone flow in /manage/events. Clone a previous event, choose its new date, confirm it opens the new draft in the editor, and verify the source event is unchanged."
