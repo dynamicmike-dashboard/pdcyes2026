@@ -1,65 +1,37 @@
 ---
-title: 'Money, Mindset & Possibility (Copy)'
-date: '2026-10-04'
-time: 1pm-3pm
-venue: 'Buzos Restaurant, c26, Av25y30, Playa Del Carmen'
-image: >-
-  https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6a82209ecf50f900f2072604.png
-speaker1: "\U0001F3A4 Letitia Montana **Money Management for Expats in Mexico**"
-speaker1_image: >-
-  https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6a821f0dfe4291bd10b3e335.jpeg
-speaker2: "\U0001F3A4 Keith Commins **Unlocking Your Creative Genius**"
-speaker2_image: >-
-  https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6a82209ea6a03cda06595c43.jpg
-registration_link: 'https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g'
+title: "✈️ Step Outside. Discover Within"
+date: "2026-10-04"
+time: "1pm-3pm"
+venue: "Buzos Restaurant, c26, Av25y30, Playa Del Carmen"
+image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ab846f91f3be2be1bd75e65.png"
+speaker1: "🎤 “Nilla” Berry - From Knowing to Doing: The Power of Practice"
+speaker1_image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ab846dd3ae3da26fb888eb1.jpeg"
+speaker2: "🎤 Delphine Fouque - What If Traveling Could Change Your Life?"
+speaker2_image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ab846e81f3be2be1bd75d00.jpeg"
+registration_link: "https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g"
 featured: true
-publish: false
+publish: true
 ---
 
-# Money, Mindset & Possibility
+Jamelle “Nilla” Berry, M.S., LMFT, AAMFT Supervisor, is a therapist, clinical supervisor, and educator who is passionate about how people develop real-world skills.
 
-📅 Date: September 6, 2026
-🕐 Time: 1pm - 3pm
-🏠 Venue: Buzos Restaurant, c26, Av25y30, Playa Del Carmen
-
-Join us for an afternoon of inspiration and growth at Money, Mindset & Possibility event!
-
----
-
-🎤 Speakers:
-
-Letitia Montana - Money Management for Expats in Mexico
-Are you an expat navigating finances in Mexico? Letitia will provide practical guidance on building credit, savings, investing options, and more. Learn from her experiences as a real estate investor and financial-services professional.
-
-Keith Commins - Unlocking Your Creative Genius
-Discover how to reignite your creative spark with Keith's insights on tapping into your inner creativity. Explore simple daily practices to overcome creative blocks and unleash your potential.
-
----
-
-🌟 Possibility:
-Explore new perspectives, embrace personal growth, and unlock a world of possibilities by thinking differently with our inspiring speakers.
-
----
-
-**🎤 Letitia Montana - Money Management for Expats in Mexico**
-
-Moving to Mexico can be exciting—but managing your money in a new country can bring a whole new set of questions. How do you build credit? Where can you keep your savings? What are the options for investing and earning interest in Mexico?
-
-In this practical and informative session, Letitia Montana will share what she has learned as an expat, Mexican resident, real estate investor, and financial-services professional. She’ll explore the Mexican financial landscape, including building credit, mortgages, high-interest savings accounts, government bonds, stock investing and ETFs, and the differences between Mexico’s financial institutions.
-
-Originally from Romania and Canada, Letitia has called Playa del Carmen home for almost six years. She is the founder of Freedom Playa Real Estate, helping international buyers invest in the Riviera Maya.
-
-She is also a founding member and current Treasurer of Inspiring Speakers PDC Toastmasters and enjoys sharing Riviera Maya content through her YouTube channel @FreedomPlaya.
+Her work challenges the idea that simply understanding a concept means we know how to use it. Instead, she explores how difficult skills become natural, flexible, and effective through observation, repetition, feedback, experimentation, and even failure.
 
 +++++
-**🎤 Keith Commins - Unlocking Your Creative Genius**
 
-Ever notice how your best ideas seem to appear when you're walking, showering, or doing absolutely nothing—but disappear the moment you sit down to be creative?
+What if travelling wasn't simply about seeing new places—but about discovering a new version of yourself?
 
-Keith Commins explores why so many adults lose touch with the creativity they had naturally as children—and, more importantly, how to get it back.
+Delphine Fouque is an entrepreneur with 18 years of experience and a deep passion for people, personal growth, meaningful connections, and travel. She has called Playa del Carmen home for the past 10 years, creating a lifestyle that combines entrepreneurship, freedom, curiosity, and exploration.
 
-Inspired by Julia Cameron’s bestselling The Artist’s Way, this engaging session introduces two simple daily practices: Morning Pages and Artist Dates. Keith will explore where creative blocks come from, why our busy modern lives can stifle creative thinking, and how deliberately making space for “doing nothing” can actually help your best ideas emerge.
+In this inspiring presentation, Delphine will explore how stepping outside our familiar surroundings can challenge our assumptions, expand our horizons, and open us to new possibilities.
 
-No artistic talent or experience is required. Just a pen, a few pages, and a willingness to write badly on purpose!
+Through travel and embracing new experiences, we can encounter different cultures, perspectives, people, and ways of living—and in the process, discover capabilities and possibilities within ourselves that may have remained hidden.
 
-Originally from Dublin, Keith has spent the past 13 years living and working internationally, including San Francisco, Thailand, Spain, Bulgaria and Hungary, before making Mexico home. He is passionate about personal development, public speaking, sales funnels and online marketing.
+If you've ever wondered whether stepping outside your comfort zone could change more than just your location, join Delphine for a fresh perspective on travel, personal growth, and becoming the best—and perhaps even a new—version of yourself.
+
+🌐 mwrlife.com/delphinefouque
+
+After taking up pole dancing, Jamelle began to rethink the way therapists are taught, drawing parallels between professional development and learning a challenging physical skill. Just as we don't master a movement by reading about it, many of the skills we need in life and work require practice to become truly embodied.
+
+In this engaging session, Jamelle will explore what happens when we stop focusing solely on knowing and start focusing on doing—and how deliberate practice can transform the way we learn, grow, and perform in real time.
+
