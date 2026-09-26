@@ -17,6 +17,11 @@ Jamelle “Nilla” Berry, M.S., LMFT, AAMFT Supervisor, is a therapist, clinica
 
 Her work challenges the idea that simply understanding a concept means we know how to use it. Instead, she explores how difficult skills become natural, flexible, and effective through observation, repetition, feedback, experimentation, and even failure.
 
+After taking up pole dancing, Jamelle began to rethink the way therapists are taught, drawing parallels between professional development and learning a challenging physical skill. Just as we don't master a movement by reading about it, many of the skills we need in life and work require practice to become truly embodied.
+
+In this engaging session, Jamelle will explore what happens when we stop focusing solely on knowing and start focusing on doing—and how deliberate practice can transform the way we learn, grow, and perform in real time.
+
+
 +++++
 
 What if travelling wasn't simply about seeing new places—but about discovering a new version of yourself?
@@ -30,8 +35,4 @@ Through travel and embracing new experiences, we can encounter different culture
 If you've ever wondered whether stepping outside your comfort zone could change more than just your location, join Delphine for a fresh perspective on travel, personal growth, and becoming the best—and perhaps even a new—version of yourself.
 
 🌐 mwrlife.com/delphinefouque
-
-After taking up pole dancing, Jamelle began to rethink the way therapists are taught, drawing parallels between professional development and learning a challenging physical skill. Just as we don't master a movement by reading about it, many of the skills we need in life and work require practice to become truly embodied.
-
-In this engaging session, Jamelle will explore what happens when we stop focusing solely on knowing and start focusing on doing—and how deliberate practice can transform the way we learn, grow, and perform in real time.
 
