@@ -13,27 +13,28 @@ featured: true
 publish: true
 ---
 
-### ✈️ Step Outside. Discover Within
+# ✈️ Step Outside. Discover Within
 
-📅 Date: October 4, 2026  
-🕐 Time: 1pm-3pm  
-🏠 Venue: Buzos Restaurant, c26, Av25y30, Playa Del Carmen  
-
-Join us for an enlightening event where we delve into the realms of self-discovery and personal growth with two exceptional speakers:
-
-🎤 **“Nilla” Berry** - *From Knowing to Doing: The Power of Practice*  
-🎤 **Delphine Fouque** - *What If Traveling Could Change Your Life?*
-
-**Jamelle “Nilla” Berry**, a therapist and educator, will challenge us to move beyond understanding to action. Discover how deliberate practice can transform the way we learn, grow, and perform in real time.
-
-**Delphine Fouque**, an entrepreneur with a passion for travel and personal growth, will inspire us to step outside our comfort zones and unlock hidden capabilities within ourselves through exploration and new experiences.
-
-If you've ever pondered the transformative power of stepping outside your comfort zone, this event is for you.
-
-**Register now** to embark on a journey of self-discovery and growth: [Registration Link](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)  
-
-Let's come together to explore the endless possibilities that lie within and beyond us. See you there! ✨🌍
+📅 **Date:** October 4, 2026  
+🕐 **Time:** 1:00 pm - 3:00 pm  
+🏢 **Venue:** Buzos Restaurant, c26, Av25y30, Playa Del Carmen
 
 ---
 
-For more information, visit [mwrlife.com/delphinefouque](https://mwrlife.com/delphinefouque)
+Join us for an extraordinary event where we delve deep within ourselves by stepping outside our comfort zones. 
+
+🎤 **Speakers:**
+- 🎤 Jamelle “Nilla” Berry - *From Knowing to Doing: The Power of Practice*
+- 🎤 Delphine Fouque - *What If Traveling Could Change Your Life?*
+
+---
+
+**Jamelle “Nilla” Berry** challenges the status quo by emphasizing the importance of practice in developing real-world skills. Discover how deliberate practice can transform your learning experience and enhance your performance in real time.
+
+**Delphine Fouque** will take you on a journey exploring the transformative power of travel. Learn how stepping outside your familiar surroundings can unlock hidden capabilities within yourself and lead to personal growth.
+
+---
+
+🔗 **Registration Link:** [Join Us Here](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)
+
+Don't miss this opportunity to gain valuable insights, connect with like-minded individuals, and embark on a journey of self-discovery. Register now to secure your spot and be part of this inspiring event!
