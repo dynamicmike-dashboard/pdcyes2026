@@ -13,26 +13,27 @@ featured: true
 publish: true
 ---
 
-Jamelle “Nilla” Berry, M.S., LMFT, AAMFT Supervisor, is a therapist, clinical supervisor, and educator who is passionate about how people develop real-world skills.
+### ✈️ Step Outside. Discover Within
 
-Her work challenges the idea that simply understanding a concept means we know how to use it. Instead, she explores how difficult skills become natural, flexible, and effective through observation, repetition, feedback, experimentation, and even failure.
+📅 Date: October 4, 2026  
+🕐 Time: 1pm-3pm  
+🏠 Venue: Buzos Restaurant, c26, Av25y30, Playa Del Carmen  
 
-After taking up pole dancing, Jamelle began to rethink the way therapists are taught, drawing parallels between professional development and learning a challenging physical skill. Just as we don't master a movement by reading about it, many of the skills we need in life and work require practice to become truly embodied.
+Join us for an enlightening event where we delve into the realms of self-discovery and personal growth with two exceptional speakers:
 
-In this engaging session, Jamelle will explore what happens when we stop focusing solely on knowing and start focusing on doing—and how deliberate practice can transform the way we learn, grow, and perform in real time.
+🎤 **“Nilla” Berry** - *From Knowing to Doing: The Power of Practice*  
+🎤 **Delphine Fouque** - *What If Traveling Could Change Your Life?*
 
+**Jamelle “Nilla” Berry**, a therapist and educator, will challenge us to move beyond understanding to action. Discover how deliberate practice can transform the way we learn, grow, and perform in real time.
 
-+++++
+**Delphine Fouque**, an entrepreneur with a passion for travel and personal growth, will inspire us to step outside our comfort zones and unlock hidden capabilities within ourselves through exploration and new experiences.
 
-What if travelling wasn't simply about seeing new places—but about discovering a new version of yourself?
+If you've ever pondered the transformative power of stepping outside your comfort zone, this event is for you.
 
-Delphine Fouque is an entrepreneur with 18 years of experience and a deep passion for people, personal growth, meaningful connections, and travel. She has called Playa del Carmen home for the past 10 years, creating a lifestyle that combines entrepreneurship, freedom, curiosity, and exploration.
+**Register now** to embark on a journey of self-discovery and growth: [Registration Link](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)  
 
-In this inspiring presentation, Delphine will explore how stepping outside our familiar surroundings can challenge our assumptions, expand our horizons, and open us to new possibilities.
+Let's come together to explore the endless possibilities that lie within and beyond us. See you there! ✨🌍
 
-Through travel and embracing new experiences, we can encounter different cultures, perspectives, people, and ways of living—and in the process, discover capabilities and possibilities within ourselves that may have remained hidden.
+---
 
-If you've ever wondered whether stepping outside your comfort zone could change more than just your location, join Delphine for a fresh perspective on travel, personal growth, and becoming the best—and perhaps even a new—version of yourself.
-
-🌐 mwrlife.com/delphinefouque
-
+For more information, visit [mwrlife.com/delphinefouque](https://mwrlife.com/delphinefouque)
