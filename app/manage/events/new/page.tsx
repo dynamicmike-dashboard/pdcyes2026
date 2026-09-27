@@ -14,7 +14,7 @@ export default function NewEventManagePage() {
     setSubmitMessage("Creating event and committing to GitHub…");
     setCreatedSlug(null);
 
-    const slug = values.title
+    const slug = values.slug || values.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
@@ -112,7 +112,7 @@ ${values.description}
         )}
 
         <EventForm
-          initialValues={{ featured: true, publish: true }}
+          initialValues={{ featured: true, publish: true, slug: "" }}
           onSubmit={handleSubmit}
           submitMessage={submitMessage}
         />

@@ -11,10 +11,13 @@ export default async function EditEventPage({
 }) {
   const event = await getEventBySlug(params.slug).catch(() => null);
   if (!event) notFound();
+
+  const initialValues = { ...event, slug: event.slug };
+
   return (
     <>
       <h1 className="text-2xl font-bold mb-6">Edit Event</h1>
-      <EventFormClient initialValues={event} />
+      <EventFormClient initialValues={initialValues} slug={params.slug} />
     </>
   );
 }

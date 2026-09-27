@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ success: true, slug: newSlug });
       }
       case "update": {
-        let { slug, content, message, sha } = data;
+        let { slug, content, message, sha, oldSlug } = data;
         if (!sha) {
           try {
             const existingFile = await octokit.request(
@@ -100,6 +100,52 @@ export async function POST(req: NextRequest) {
           } catch (e: any) {
             // ignore if file doesn't exist
           }
+        }
+
+        // If slug changed, we need to delete the old file and create a new one
+        if (oldSlug && oldSlug !== slug) {
+          // First, get the SHA of the old file
+          try {
+            const oldFile = await octokit.request(
+              `GET /repos/{owner}/{repo}/contents/content/events/{filename}`,
+              {
+                owner,
+                repo,
+                filename: `${oldSlug}.md`,
+                headers: { authorization: `token ${token}` },
+              }
+            );
+            const oldSha = (oldFile.data as any).sha;
+            
+            // Delete the old file
+            await octokit.request(
+              `DELETE /repos/{owner}/{repo}/contents/content/events/{filename}`,
+              {
+                owner,
+                repo,
+                filename: `${oldSlug}.md`,
+                sha: oldSha,
+                message: message || `Rename event slug from ${oldSlug} to ${slug}`,
+                headers: { authorization: `token ${token}` },
+              }
+            );
+          } catch (e: any) {
+            // Old file might not exist, continue with create
+          }
+          
+          // Create new file with new slug (no sha needed for new file)
+          await octokit.request(
+            `PUT /repos/{owner}/{repo}/contents/content/events/{filename}`,
+            {
+              owner,
+              repo,
+              filename: `${slug}.md`,
+              message: message || `Update event slug to ${slug}`,
+              content: Buffer.from(content).toString("base64"),
+              headers: { authorization: `token ${token}` },
+            }
+          );
+          return NextResponse.json({ success: true });
         }
 
         const payload: Record<string, any> = {

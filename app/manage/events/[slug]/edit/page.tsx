@@ -12,5 +12,8 @@ export default async function ManageEditEventPage({
   const event = await getEventBySlug(params.slug).catch(() => null);
   if (!event) notFound();
 
-  return <ManageEditEventClient slug={params.slug} initialValues={event} />;
+  // Ensure slug is in initialValues for the form
+  const initialValues = { ...event, slug: event.slug };
+
+  return <ManageEditEventClient slug={params.slug} initialValues={initialValues} />;
 }

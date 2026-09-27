@@ -18,6 +18,7 @@ export default function ManageEditEventClient({
 
     const markdownContent = `---
 title: "${values.title}"
+slug: "${values.slug}"
 date: "${values.date}"
 time: "${values.time}"
 venue: "${values.venue}"
@@ -34,17 +35,22 @@ publish: ${values.publish}
 ${values.description}
 `;
 
+    // Determine the target slug - use the new slug if changed, otherwise use the current slug
+    const targetSlug = values.slug || slug;
+
     try {
       const res = await fetch("/api/github", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "update",
-          slug,
+          slug: targetSlug,
           // Do NOT pass sha – the API will auto-fetch the current SHA from GitHub
           // to avoid stale SHA mismatch errors when multiple edits happen
           content: markdownContent,
           message: `Update event: ${values.title}`,
+          // If slug changed, we need to delete the old file
+          ...(targetSlug !== slug ? { oldSlug: slug } : {}),
         }),
       });
 
@@ -54,7 +60,7 @@ ${values.description}
       }
 
       setSubmitMessage("Event updated successfully! Redirecting…");
-      setTimeout(() => router.push("/manage/events"), 1200);
+      setTimeout(() => router.push(`/manage/events`), 1200);
     } catch (err: any) {
       setSubmitMessage(`Error: ${err.message}`);
     }

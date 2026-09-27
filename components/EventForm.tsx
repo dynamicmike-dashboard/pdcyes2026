@@ -6,6 +6,7 @@ import { AIModal } from "@/components/ai/AIModal";
 
 type FormValues = {
   title: string;
+  slug: string;
   date: string; // YYYY-MM-DD
   time: string;
   venue: string;
@@ -36,6 +37,7 @@ export function EventForm({
 }) {
   const [values, setValues] = useState<FormValues>({
     title: "",
+    slug: "",
     date: "",
     time: "",
     venue: "",
@@ -141,6 +143,19 @@ export function EventForm({
           required
           className="w-full p-2 border rounded"
         />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Slug (URL)*</label>
+        <input
+          name="slug"
+          value={values.slug}
+          onChange={handleChange}
+          required
+          placeholder="e.g., move-laugh-thrive-august-2026"
+          className="w-full p-2 border rounded"
+        />
+        <p className="text-xs text-gray-500 mt-1">Lowercase, hyphens only. Used in the event URL.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

@@ -11,6 +11,7 @@ export function EventRow({ event }: { event: any }) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openClone, setOpenClone] = useState(false);
   const [newDate, setNewDate] = useState(event.date || "");
+  const [newSlug, setNewSlug] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
@@ -37,9 +38,10 @@ export function EventRow({ event }: { event: any }) {
     }
   };
 
-  const handleClone = async () => {
+const handleClone = async () => {
     setLoading(true);
-    const newSlug = `${event.slug}-copy-${Date.now().toString().slice(-4)}`;
+    // Use user-provided slug or generate one
+    const slugToUse = newSlug || `${event.slug}-copy-${Date.now().toString().slice(-4)}`;
 
     try {
       const res = await fetch("/api/github", {
@@ -48,7 +50,7 @@ export function EventRow({ event }: { event: any }) {
         body: JSON.stringify({
           action: "clone",
           sourceSlug: event.slug,
-          newSlug,
+          newSlug: slugToUse,
           newDate: newDate || event.date,
           message: `Clone event: ${event.title}`,
         }),
@@ -139,12 +141,12 @@ export function EventRow({ event }: { event: any }) {
         </td>
       </tr>
 
-      {/* Clone Modal */}
+{/* Clone Modal */}
       <Modal open={openClone} onClose={() => setOpenClone(false)}>
         <div className="p-6">
           <h2 className="text-lg font-bold text-gray-900 mb-2">Clone Event</h2>
           <p className="text-sm text-gray-600 mb-4">
-            Creating a duplicate of “<span className="font-medium">{event.title}</span>”. Choose a date for the new event:
+            Creating a duplicate of "{event.title}". Choose a date and slug for the new event:
           </p>
           <div className="mb-6">
             <label className="block text-xs font-semibold text-gray-700 mb-1">New Event Date</label>
@@ -154,6 +156,17 @@ export function EventRow({ event }: { event: any }) {
               onChange={(e) => setNewDate(e.target.value)}
               className="w-full p-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
+          </div>
+          <div className="mb-6">
+            <label className="block text-xs font-semibold text-gray-700 mb-1">New Event Slug (URL)</label>
+            <input
+              type="text"
+              value={newSlug}
+              onChange={(e) => setNewSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))}
+              placeholder={event.slug + "-copy"}
+              className="w-full p-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+            />
+            <p className="text-xs text-gray-500 mt-1">Lowercase, hyphens only. Auto-generated if left empty.</p>
           </div>
           <div className="flex justify-end space-x-3">
             <Button variant="outline" onClick={() => setOpenClone(false)}>

@@ -1,99 +1,77 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { EventForm } from "@/components/EventForm";
 
 export default function NewEventPage() {
   const router = useRouter();
   const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitMessage("Event created! Redirecting…");
-    await new Promise((r) => setTimeout(r, 1500));
-    router.push("/admin/events");
+  const handleSubmit = async (values: any) => {
+    setSubmitMessage("Creating event…");
+    
+    const markdownContent = `---
+title: "${values.title}"
+slug: "${values.slug}"
+date: "${values.date}"
+time: "${values.time}"
+venue: "${values.venue}"
+image: "${values.image}"
+speaker1: "${values.speaker1}"
+speaker1_image: "${values.speaker1_image || ""}"
+speaker2: "${values.speaker2}"
+speaker2_image: "${values.speaker2_image || ""}"
+registration_link: "${values.registration_link}"
+featured: ${values.featured}
+publish: ${values.publish}
+---
+
+${values.description}
+`;
+
+    try {
+      const res = await fetch("/api/github", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "create",
+          slug: values.slug,
+          content: markdownContent,
+          message: `Add event: ${values.title}`,
+        }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "GitHub commit failed");
+      }
+
+      setSubmitMessage("Event created! Redirecting…");
+      setTimeout(() => router.push("/admin/events"), 1200);
+    } catch (err: any) {
+      setSubmitMessage(`Error: ${err.message}`);
+    }
   };
 
   return (
-    <>
-      <h1 className="text-2xl font-bold mb-6">New Event</h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium mb-1">Title*</label>
-          <input type="text" required className="w-full p-2 border rounded" />
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="block text-sm font-medium mb-1">Date*</label>
-            <input type="date" required className="w-full p-2 border rounded" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Time (e.g., 10:00-12:00)</label>
-            <input type="text" className="w-full p-2 border rounded" />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Venue</label>
-          <input type="text" className="w-full p-2 border rounded" />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Image URL (relative to /public)</label>
-          <input type="text" className="w-full p-2 border rounded" />
-        </div>
-
-        <div className="space-y-2">
-          <label className="block text-sm font-medium mb-1">Speaker 1 (Name – Title)</label>
-          <input type="text" className="w-full p-2 border rounded" />
-          <label className="block text-sm font-medium mb-1">Speaker 2 (Name – Title)</label>
-          <input type="text" className="w-full p-2 border rounded" />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Description (Markdown)</label>
-          <textarea rows={6} className="w-full p-2 border rounded" />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Registration Link (optional)</label>
-          <input type="text" className="w-full p-2 border rounded" />
-        </div>
-
-        <div className="flex items-center space-x-3">
-          <label className="flex items-center cursor-pointer">
-            <input type="checkbox" className="h-4 w-4 text-primary border-gray-300 rounded" />
-            Featured on Home
-          </label>
-        </div>
-
-        <div className="flex items-center space-x-3">
-          <label className="flex items-center cursor-pointer">
-            <input type="checkbox" className="h-4 w-4 text-primary border-gray-300 rounded" />
-            Publish Immediately (uncheck to save as draft)
-          </label>
-        </div>
-
-        {submitMessage && (
-          <p className="text-sm text-green-600">{submitMessage}</p>
-        )}
-
-        <div className="flex justify-end space-x-3">
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+        <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+          <h1 className="text-2xl font-bold text-gray-900">Create New Event</h1>
           <button
-            type="button"
-            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
             onClick={() => router.push("/admin/events")}
+            className="text-sm text-gray-500 hover:text-gray-700"
           >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90"
-          >
-            {submitMessage ? "Saving…" : "Create Event"}
+            ← Back to Events
           </button>
         </div>
-      </form>
-    </>
+
+        <EventForm
+          initialValues={{ featured: true, publish: true, slug: "" }}
+          onSubmit={handleSubmit}
+          submitMessage={submitMessage}
+        />
+      </div>
+    </div>
   );
 }
