@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
         Registration link: ${context.registration_link ?? ""}
         ${context.extraPrompt ?? ""}
         Keep the tone warm, inspirational and community-focused. End with a clear call-to-action to register.
+        IMPORTANT: Preserve ALL external links and social media URLs from the existing description. Do not shorten or remove any speaker links, bios, or contact information. Write a full, detailed description.
       `;
       break;
     case "whatsapp":
@@ -93,6 +94,7 @@ export async function POST(req: NextRequest) {
         Registration link: ${context.registration_link ?? ""}
         ${context.extraPrompt ?? ""}
         Include a warm greeting, event details, benefits, and a clear registration button/link.
+        IMPORTANT: Preserve ALL external links and social media URLs from the existing description. Include speaker bios and links.
       `;
       break;
     default:
@@ -107,7 +109,7 @@ export async function POST(req: NextRequest) {
         { role: "user", content: userPrompt },
       ],
       temperature: 0.7,
-      max_tokens: 500,
+      max_tokens: 1500,
     });
 
     const generated = completion.choices[0]?.message?.content?.trim() ?? "";
