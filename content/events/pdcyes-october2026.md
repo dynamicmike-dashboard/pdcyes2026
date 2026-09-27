@@ -16,23 +16,43 @@ publish: true
 
 # ✈️ Step Outside. Discover Within
 
+---
+
 📅 **Date:** October 4, 2026  
-🕐 **Time:** 1pm-3pm  
+🕐 **Time:** 1:00 pm - 3:00 pm  
 🏠 **Venue:** Buzos Restaurant, c26, Av25y30, Playa Del Carmen
-
-Step outside your comfort zone and embark on a journey of self-discovery at our upcoming event, where we invite you to explore the depths within to unleash your true potential.
-
-### 🎤 Speakers:
-- 🎤 **“Nilla” Berry** - *From Knowing to Doing: The Power of Practice*
-- 🎤 **Delphine Fouque** - *What If Traveling Could Change Your Life?*
 
 ---
 
-**“Nilla” Berry** challenges you to go beyond mere knowledge and embrace the power of practice to elevate your skills in real-time. Discover the transformative effects of deliberate practice on your learning journey and performance.
+🎤 **Speakers:**
+- 🎤 “Nilla” Berry - *From Knowing to Doing: The Power of Practice*
+- 🎤 Delphine Fouque - *What If Traveling Could Change Your Life?*
 
-Join **Delphine Fouque** as she uncovers the profound impact of travel on personal growth. Explore how venturing outside your comfort zone can unlock hidden capabilities within you, leading to a life-changing experience.
+---
 
-### 📝 Registration:
-Don't miss this chance to connect, learn, and grow together! Reserve your spot now by [registering here](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g) and immerse yourself in a journey of self-discovery with our community.
+Embark on a transformative journey with us at "Step Outside. Discover Within" as we delve into the realms of personal growth, self-discovery, and the power of practice.
 
-Let's embrace the unknown and unveil the magic that resides within each of us. See you there! ✨
+---
+
+**🌟 Meet Jamelle “Nilla” Berry**  
+Nilla, a therapist and educator, challenges the notion that mere understanding equates to mastery. Join her as she shares insights on how deliberate practice can shape our learning, growth, and performance in real time. Discover the magic that lies in the transition from knowing to doing.
+
+---
+
+**🌟 Introducing Delphine Fouque**  
+Entrepreneur and travel enthusiast Delphine invites you to reimagine the concept of travel. Explore how venturing beyond our comfort zones can unravel new dimensions within ourselves. Uncover the hidden gems of personal growth and self-discovery through her captivating narrative.
+
+🌐 mwrlife.com/delphinefouque
+linkedin; https://www.linkedin.com/in/delphinefouque-traveladvantage-mwrlife/ 
+facebook; https://www.facebook.com/traveladvantage.delphinefouque
+
+---
+
+📝 **Join Us:**  
+Embrace this opportunity to expand your horizons, challenge your assumptions, and unlock new possibilities within. 
+
+🔗 **Registration Link:** [Join Now!](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)  
+
+---
+
+Don't miss out on this inspiring event filled with insights, connections, and personal growth. Reserve your spot today and step into a world of endless possibilities! 🌟
