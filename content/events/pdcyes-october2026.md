@@ -14,23 +14,36 @@ featured: true
 publish: true
 ---
 
-Embark on a transformative journey with us at "Step Outside. Discover Within" as we delve into the realms of personal growth, self-discovery, and the power of practice.
+# ✈️ Step Outside. Discover Within
+
+**Date:** October 4, 2026  
+**Time:** 1:00 PM - 3:00 PM  
+**Venue:** Buzos Restaurant, c26, Av25y30, Playa Del Carmen
 
 ---
 
-🌟 Meet Jamelle “Nilla” Berry, M.S., LMFT, AAMFT 
-Nilla, a therapist and educator, challenges the notion that mere understanding equates to mastery. Join her as she shares insights on how deliberate practice can shape our learning, growth, and performance in real time. Discover the magic that lies in the transition from knowing to doing.
+Join us for an extraordinary event that will ignite your spirit and inspire your journey of self-discovery at "Step Outside. Discover Within." Delve into the depths of personal growth, challenge your perspectives, and embrace the transformative power of practice.
 
 ---
 
-🌟 Introducing Delphine Fouque
-Entrepreneur and travel enthusiast Delphine invites you to reimagine the concept of travel. Explore how venturing beyond our comfort zones can unravel new dimensions within ourselves. Uncover the hidden gems of personal growth and self-discovery through her captivating narrative.
+🎤 **Speakers:**
 
-🌐 mwrlife.com/delphinefouque
-linkedin; https://www.linkedin.com/in/delphinefouque-traveladvantage-mwrlife/
-facebook; https://www.facebook.com/traveladvantage.delphinefouque
+🌟 **Jamelle “Nilla” Berry, M.S., LMFT, AAMFT**  
+Embark on a profound exploration with Nilla, a therapist and educator, who will redefine the way you perceive mastery. Learn how intentional practice can revolutionize your learning, fuel your growth, and elevate your performance in real-time. Witness the enchantment that occurs when knowledge transitions into action.
+
+🌟 **Delphine Fouque**  
+Entrepreneur and avid traveler, Delphine, invites you to reimagine the essence of travel. Venture beyond your comfort zone and discover uncharted territories within yourself. Uncover the treasures of personal growth and self-discovery through Delphine's captivating narrative.
+
+🌐 **Delphine's Profiles:**  
+[Website](https://mwrlife.com/delphinefouque) | [LinkedIn](https://www.linkedin.com/in/delphinefouque-traveladvantage-mwrlife/) | [Facebook](https://www.facebook.com/traveladvantage.delphinefouque)
 
 ---
 
-📝 Join Us:
-Embrace this opportunity to expand your horizons, challenge your assumptions, and unlock new possibilities within.
+📝 **Join Us:**  
+This event is your chance to broaden your horizons, challenge your beliefs, and unlock boundless possibilities within. Embrace this opportunity to connect with a community of like-minded individuals who are on a quest for personal growth and transformation.
+
+🔗 **[Register Here](https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g)** to reserve your spot and embark on this enlightening journey with us.
+
+---
+
+Step outside your comfort zone and embark on an inner exploration that will reshape your perspective on personal growth and self-discovery. Don't miss this chance to be part of a community that thrives on inspiration and empowerment. Register now and let the transformation begin! 🌟
