@@ -4,14 +4,14 @@ slug: "pdcyes_nov2026_learn_grow_give_something_back"
 date: "2026-11-01"
 time: "1pm-3pm"
 venue: "Buzos Restaurant, c26, Av25y30, Playa Del Carmen"
-image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ab84bc43ae3da26fb88e830.png"
+image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ae647df36aa4a07e8a3933f.png"
 speaker1: "🎤 Heydy - DENGUE: WHAT YOU NEED TO KNOW TO PROTECT YOURSELF"
 speaker1_image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ae4ca26c9d5b7168d2dd9b8.jpeg"
 speaker2: "🎤 Lena - Be the Beacon: Exploring the Potential Within Us"
 speaker2_image: "https://assets.cdn.filesafe.space/oeYXQCzN3HPGG5vykVUG/media/6ae6448d736386d0dca3c4d6.jpeg"
 registration_link: "https://chat.whatsapp.com/EbSRfmoyTQQEMfmRWjmQ6g"
 featured: true
-publish: false
+publish: true
 ---
 
 🌟 **PDCYES – Sunday 1st November** 🌟
